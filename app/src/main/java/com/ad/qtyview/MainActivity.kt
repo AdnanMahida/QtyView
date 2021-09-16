@@ -22,13 +22,13 @@ class MainActivity : AppCompatActivity() {
             ) {
                 Toast.makeText(applicationContext, "New Qty $newQuantity", Toast.LENGTH_SHORT)
                     .show()
-                txtQty.text = "Current "+qty.qty.toString()+" Qty"
+                txtQty.text = "Current "+qty.qty.toString()+" Quantities"
             }
 
             override fun onLimitReached() {
                 Toast.makeText(applicationContext, "On Limit Reached", Toast.LENGTH_SHORT)
                     .show()
-                txtQty.text = "Current "+qty.qty.toString()+" Qty"
+                txtQty.text = "Current "+qty.qty.toString()+" Quantities"
             }
 
         }
