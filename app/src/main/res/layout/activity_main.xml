@@ -28,9 +28,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:qty_add_button_text_color="@color/purple_500"
         app:qty_add_button_text_stroke_color="@color/purple_500"
-        app:qty_quantity="0">
+        app:qty_quantity="0" />
 
-    </com.ad.qtyview.QtyView>
 
     <Button
         android:id="@+id/btnSetQty"
