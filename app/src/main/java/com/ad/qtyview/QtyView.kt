@@ -1,25 +1,22 @@
 package com.ad.qtyview
 
-import android.widget.FrameLayout
-import android.widget.TextView
-import com.google.android.material.button.MaterialButton
-import android.graphics.drawable.Drawable
-import com.ad.qtyview.QtyView.OnQtyChangeListener
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.TypedArray
-import com.ad.qtyview.R
-import android.graphics.drawable.GradientDrawable
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.widget.LinearLayout
-import android.util.TypedValue
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.util.AttributeSet
-import androidx.core.content.ContextCompat
+import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.core.content.ContextCompat
+import com.google.android.material.button.MaterialButton
 
 class QtyView : FrameLayout, View.OnClickListener {
     private var btnPlus: ImageView? = null
@@ -38,7 +35,7 @@ class QtyView : FrameLayout, View.OnClickListener {
     private var minQuantity = Int.MAX_VALUE
 
     interface OnQtyChangeListener {
-        fun onQuantityChanged(oldQuantity: Int, newQuantity: Int, programmatically: Boolean)
+        fun onQuantityChanged(oldQuantity: Int, newQuantity: Int)
         fun onLimitReached()
     }
 
@@ -156,6 +153,7 @@ class QtyView : FrameLayout, View.OnClickListener {
         btnAdd!!.setOnClickListener(this)
         btnMinus!!.setOnClickListener(this)
         btnPlus!!.setOnClickListener(this)
+        if (quantity >= 1) visibleControls()
     }
 
     private fun pxFromDp(dp: Float): Int {
@@ -176,8 +174,7 @@ class QtyView : FrameLayout, View.OnClickListener {
                 txtQty!!.text = quantity.toString()
                 if (onQtyChangeListener != null) onQtyChangeListener!!.onQuantityChanged(
                     oldQty,
-                    quantity,
-                    false
+                    quantity
                 )
             }
         } else if (view === btnMinus) {
@@ -190,8 +187,7 @@ class QtyView : FrameLayout, View.OnClickListener {
                 txtQty!!.text = quantity.toString()
                 if (onQtyChangeListener != null) onQtyChangeListener!!.onQuantityChanged(
                     oldQty,
-                    quantity,
-                    false
+                    quantity
                 )
                 if (quantity == minQuantity) {
                     invisibleControls()
@@ -204,8 +200,7 @@ class QtyView : FrameLayout, View.OnClickListener {
             txtQty!!.text = quantity.toString()
             if (onQtyChangeListener != null) onQtyChangeListener!!.onQuantityChanged(
                 oldQty,
-                quantity,
-                false
+                quantity
             )
         }
     }
@@ -239,8 +234,15 @@ class QtyView : FrameLayout, View.OnClickListener {
             }
             if (!limitReached) {
                 visibleControls()
-                quantity = newQuantity
+                val oldQty = quantity
+                this.quantity = newQuantity
+
                 txtQty!!.text = quantity.toString()
+                onQtyChangeListener?.onQuantityChanged(
+                    oldQty,
+                    newQuantity
+                )
+
             } else {
                 invisibleControls()
                 if (onQtyChangeListener != null) onQtyChangeListener!!.onLimitReached()
