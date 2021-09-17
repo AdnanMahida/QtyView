@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidDevelopment4.0/QtyView/QtyView/src/main/res/drawable/ic_minus.xml" value="0.2203125" />
+        <entry key="..\:/AndroidDevelopment4.0/QtyView/QtyView/src/main/res/drawable/ic_plus.xml" value="0.2203125" />
         <entry key="..\:/AndroidDevelopment4.0/QtyView/app/src/main/res/drawable/ic_minus.xml" value="0.2203125" />
         <entry key="..\:/AndroidDevelopment4.0/QtyView/app/src/main/res/drawable/ic_plus.xml" value="0.2203125" />
         <entry key="..\:/AndroidDevelopment4.0/QtyView/app/src/main/res/layout/activity_main.xml" value="0.25" />

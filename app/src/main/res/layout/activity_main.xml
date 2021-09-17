@@ -26,9 +26,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:qty_add_button_text_color="@color/purple_500"
-        app:qty_add_button_text_stroke_color="@color/purple_500"
-        app:qty_quantity="0" />
+        app:qty_add_button_text_color="@color/black"
+        app:qty_add_button_text_stroke_color="@color/black"
+        app:qty_quantity="0"
+        app:qty_quantity_text_color="@color/black" />
 
 
     <Button

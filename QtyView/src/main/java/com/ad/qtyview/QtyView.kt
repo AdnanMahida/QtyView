@@ -137,6 +137,7 @@ class QtyView : FrameLayout, View.OnClickListener {
         btnAdd!!.iconGravity = MaterialButton.ICON_GRAVITY_END
         btnAdd!!.insetBottom = 0
         btnAdd!!.insetTop = 0
+        btnAdd!!.iconTint = ColorStateList.valueOf(addBtnStrokeColor)
         btnMinus!!.visibility = INVISIBLE
         txtQty!!.visibility = INVISIBLE
         btnPlus!!.visibility = INVISIBLE
